@@ -17,7 +17,7 @@ function Articals() {
             <div className="main-container px-8 lg:px-[160px] pb-10">
 
                 {/* main articles section */}
-                <div className="articles-container flex flex-wrap justify-center items-center lg:flex-nowrap gap-[1.563rem]">
+                <div className="articles-container flex flex-wrap justify-center items-center md:flex-nowrap gap-[1.563rem]">
 
                     {/* article 1 */}
                     <div className="articles">

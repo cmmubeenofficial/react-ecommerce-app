@@ -5,6 +5,9 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebook, faYoutube } from "@fortawesome/free-brands-svg-icons"
 
+// 1. iPad Pro = 1024 X 1366
+// 2. Nest Hub = 1024 X 600
+
 function HomePage() {
   return (
     <>
@@ -107,29 +110,37 @@ function HomePage() {
         </div>
 
         {/* Join Our Newsletter section */}
-        <div className="newsletter-container order-7 lg:order-0 bg-[#F3F5F7] h-[55vh] flex justify-between items-center overflow-hidden">
-          <div className="left-img lg:-ml-[8.75rem] mt-[5.625rem]">
-            <img src="/imgs/bedroom.png" className="w-[2.188vw] hidden lg:block" alt="Bedroom image" />
+
+        {/* remaining devices
+                      W   X  H
+        6. Nest Hub >(1024 X 600)
+
+        */}
+        <div className="newsletter-container order-7 lg:order-0 bg-[#F3F5F7] px-8 py-[5.938rem] md:h-[55vh] flex justify-between items-center overflow-hidden">
+          <div className="left-img xl:-ml-[8.75rem] md:-ml-[1rem] mt-[5.625rem]">
+            <img src="/imgs/bedroom.png" className="h-[36vw] hidden xl:block" alt="Bedroom image" />
           </div>
 
           {/* Join Our Newsletter form */}
           <div className="joining-form flex flex-col justify-center gap-[2rem]">
             <div className="joining-text">
-              <h4 className="font-poppins text-[2.5rem]">Join Our Newsletter</h4>
-              <p className="font-inter text-[1.125rem]">Sign up for deals, new products and promotions</p>
+              <h4 className="font-poppins md:text-[2.5rem] text-[28px]">Join Our Newsletter</h4>
+              <p className="font-inter md:text-[1.125rem] text-[14px]">Sign up for deals, new products and promotions</p>
             </div>
 
             {/* form */}
-            <div className="form flex items-center gap-[0.5rem] border-b border-b-gray-300 pb-[0.625rem]">
+            <div className="form flex items-center justify-between border-b border-b-gray-300 pb-[0.625rem] w-full max-w-[500px]">
               <img src="/icons/email.png" alt="email icon" />
-              <input type="text" placeholder="Email address" className="pr-[9.375rem] focus:outline-none" />
-              <button className="font-inter text-[#6C7275] cursor-pointer">Signup</button>
+              <input type="text" 
+              placeholder="Email address" 
+              className="flex-1 px-2 focus:outline-none" />
+              <button className="font-inter text-[#6C7275] cursor-pointer pl-2 pr-2 lg:pl-4 lg:pr-4">Signup</button>
             </div>
 
           </div>
 
-          <div className="right-img mt-[6.25rem] lg:-mr-[12.5rem]">
-            <img src="imgs/signup-sofa.png" alt="sofa image" className="hidden lg:block" />
+          <div className="right-img mt-[6.25rem] lg:-mr-[12.5rem] md:-mr-[12.5rem]">
+            <img src="imgs/signup-sofa.png" alt="sofa image" className="hidden md:block" />
           </div>
         </div>
 
