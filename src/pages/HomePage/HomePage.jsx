@@ -7,6 +7,11 @@ import { faInstagram, faFacebook, faYoutube } from "@fortawesome/free-brands-svg
 
 // 1. iPad Pro = 1024 X 1366
 // 2. Nest Hub = 1024 X 600
+// 3. iPad min = 768 X 1024
+// 4. iPad min = 820 X 1180
+// 5. surface pro 7 = 912 X 1368
+// 6. Asus Zenbook Fold = 853 X 1280
+// 6. Asus Zenbook Fold = 853 X 1280
 
 function HomePage() {
   return (
@@ -22,9 +27,11 @@ function HomePage() {
 
         {/* SALE UP TO 35% OFF */}
         <div className="sale-disc-container order-5 lg:order-0">
-          <div className="sale-dicount-section bg-[#F3F5F7] flex-col lg:flex lg:flex-row items-center">
+          <div className="sale-dicount-section bg-[#F3F5F7] flex-col lg:flex lg:flex-row items-center lg:h-[38rem] lg:w-auto sm:w-full sm:h-auto">
             {/* left image only */}
-            <img src="/imgs/discount_sale.png" alt="drawing room" />
+            <img src="/imgs/discount_sale.png"
+              className="lg:-ml-[15rem] xl:-ml-0 lg:h-[38rem] lg:w-auto sm:w-full sm:h-auto"
+              alt="drawing room" />
 
             {/* right section */}
             <div className="left-section pl-[4.5rem] flex flex-col gap-[1.5rem] lg:gap-[1rem] py-[6.25rem] px-[2rem]">
@@ -110,12 +117,6 @@ function HomePage() {
         </div>
 
         {/* Join Our Newsletter section */}
-
-        {/* remaining devices
-                      W   X  H
-        6. Nest Hub >(1024 X 600)
-
-        */}
         <div className="newsletter-container order-7 lg:order-0 bg-[#F3F5F7] px-8 py-[5.938rem] md:h-[55vh] flex justify-between items-center overflow-hidden">
           <div className="left-img xl:-ml-[8.75rem] md:-ml-[1rem] mt-[5.625rem]">
             <img src="/imgs/bedroom.png" className="h-[36vw] hidden xl:block" alt="Bedroom image" />
@@ -131,9 +132,9 @@ function HomePage() {
             {/* form */}
             <div className="form flex items-center justify-between border-b border-b-gray-300 pb-[0.625rem] w-full max-w-[500px]">
               <img src="/icons/email.png" alt="email icon" />
-              <input type="text" 
-              placeholder="Email address" 
-              className="flex-1 px-2 focus:outline-none" />
+              <input type="text"
+                placeholder="Email address"
+                className="flex-1 px-2 focus:outline-none" />
               <button className="font-inter text-[#6C7275] cursor-pointer pl-2 pr-2 lg:pl-4 lg:pr-4">Signup</button>
             </div>
 
