@@ -5,14 +5,6 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebook, faYoutube } from "@fortawesome/free-brands-svg-icons"
 
-// 1. iPad Pro = 1024 X 1366
-// 2. Nest Hub = 1024 X 600
-// 3. iPad min = 768 X 1024
-// 4. iPad min = 820 X 1180
-// 5. surface pro 7 = 912 X 1368
-// 6. Asus Zenbook Fold = 853 X 1280
-// 6. Asus Zenbook Fold = 853 X 1280
-
 function HomePage() {
   return (
     <>
@@ -51,7 +43,7 @@ function HomePage() {
         </div>
 
         {/* featured products section */}
-        <div className="featured-products order-2 lg:order-0 grid grid-cols-1 lg:grid-cols-2 gap-[1.5rem] px-4 lg:px-[7rem]">
+        <div className="featured-products order-2 lg:order-0 grid grid-cols-1 md:grid-cols-2 gap-[1.5rem] px-4 lg:px-[7rem]">
 
           {/* product 1 */}
           <div className="pro-1 relative">
@@ -146,13 +138,13 @@ function HomePage() {
         </div>
 
         {/* footer section */}
-        <div className="footer-container order-8 lg:order-0 bg-[#141718] lg:px-[10rem] pt-[5rem] pb-[2rem] ">
+        <div className="footer-container order-8 lg:order-0 bg-[#141718] lg:px-[10rem] pt-[5rem] pb-[2rem]">
 
           <div className="first-row flex flex-col lg:flex-row items-center justify-between gap-[2.5rem]">
             {/* wood heaven + tageline */}
             <div className="wood-haven flex flex-col lg:flex-row items-center justify-between gap-[2rem] ">
               <p className="font-poppins text-[1.5rem] text-[#FFFFFF]">Wood Haven</p>
-              <div className="bar border border-r-2 lg:border-r-0 lg:border-b-[1.5rem] border-[#6C7275]"></div>
+              <div className="bar border border-r-[3rem] lg:border-r-0 lg:border-b-[1.5rem] border-[#6C7275]"></div>
               <p className="font-inter text-[0.875rem] text-[#E8ECEF]">Gift & Decoration Store</p>
             </div>
 
@@ -169,7 +161,9 @@ function HomePage() {
           </div>
 
           {/* border bottom */}
-          <div className="border-b-1 border-[#6C7275] pt-[3.063rem] px-8 lg:px-[10rem]"></div>
+          <div className="flex justify-center items-center">
+            <div className="border-b-1 border-[#6C7275] pt-[3.063rem] w-[80%] lg:w-full"></div>
+          </div>
 
           {/* copyright policy + social handlers container */}
           <div className="change-order-container flex flex-col">

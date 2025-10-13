@@ -73,9 +73,9 @@ function Navbar() {
         </div>
 
         {/* hero section main heading */}
-        <div className='flex flex-col justify-center items-center lg:flex lg:flex-row gap-4 lg:gap-[5.625rem] pt-8 px-8 lg:px-0'>
-          <h2 className='font-poppins text-[3.50rem] lg:text-[4.5rem] text-[#141718]'>Simply Unique<span className='text-[#6C7275]'>/</span> <br />Simply Better.</h2>
-          <p className='text-[#6C7275] font-inter text-[0.875rem]'><span className='text-[#343839] font-semibold'>Wood Heaven</span> is a gift & decorations store based in HCMC, <br /> Vietnam. Est since 2019. </p>
+        <div className='flex flex-col justify-center items-center md:flex md:flex-row gap-4 md:gap-[1rem] pt-8 px-8 md:px-[4rem]'>
+          <h2 className='font-poppins text-[40px] xl:text-[4.5rem] text-[#141718]'>Simply Unique<span className='text-[#6C7275]'>/</span> <br />Simply Better.</h2>
+          <p className='text-[#6C7275] font-inter text-[14px]'><span className='text-[#343839] font-semibold'>Wood Heaven</span> is a gift & decorations store based in HCMC, <br /> Vietnam. Est since 2019. </p>
         </div>
       </div>
     </>
