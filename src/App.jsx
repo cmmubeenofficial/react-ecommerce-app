@@ -4,10 +4,12 @@ import toast, { Toaster } from "react-hot-toast"
 
 function App() {
 
+  // check wheather user is loggedin or not
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
   return (
     <>
-      <SignUp />
-      {/* <HomePage /> */}
+      {isLoggedIn ? <HomePage /> : <SignUp />}
       <Toaster position="top-right" />
     </>
   )

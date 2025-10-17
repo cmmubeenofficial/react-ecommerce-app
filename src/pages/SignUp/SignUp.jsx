@@ -37,16 +37,30 @@ function SignUp() {
     };
 
     // handle form validation
-    const onSubmit = (data) => {
-        console.log(data)
-        // store data to local storage for autehentication
-        localStorage.setItem("signup", JSON.stringify(data))
+    const onSubmit = (formData) => {
+        if (mode === "sign up") {
+            // store data to local storage for autehentication
+            localStorage.setItem("signup", JSON.stringify(formData))
 
-        toast.success("🎉 Account created! Please sign in.");
-        reset()
-        setMode("signin")
+            toast.success("🎉 Account created! Please sign in.");
+            reset()
+            setMode("signin")
+        } else {
+            console.log("sign in username", formData.username.trim())
+            console.log("sign in password", formData.password.trim())
+            // handle sign in functionality
+            const lsFormData = JSON.parse(localStorage.getItem("signup"))
+            if (formData.username.trim() === lsFormData.username.trim() && formData.password.trim() === lsFormData.password.trim()) {
+                toast.success("Logged in successfully!")
+                localStorage.setItem("isLoggedIn", "true")
+                window.location.reload()
+            } else {
+                toast.error("username or password is incorrect")
+            }
+        }
+
+
     }
-
 
     // handle isVisible icon
     const handleIsVisible = () => {
