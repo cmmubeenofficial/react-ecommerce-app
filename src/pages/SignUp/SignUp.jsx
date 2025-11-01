@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
-import js from '@eslint/js';
+import { useEffect } from 'react';
 
 function SignUp() {
+
+    // ============================ Global Variables ===========================
+    let lsFormData = JSON.parse(localStorage.getItem("signup"))
+    // console.log(lsFormData)
+
     // ============================ State Management ===========================
 
     // sign up or sign mode
@@ -38,6 +43,7 @@ function SignUp() {
 
     // handle form validation
     const onSubmit = (formData) => {
+        // check user already have an account or not
         if (mode === "sign up") {
             // store data to local storage for autehentication
             localStorage.setItem("signup", JSON.stringify(formData))
@@ -46,10 +52,8 @@ function SignUp() {
             reset()
             setMode("signin")
         } else {
-            console.log("sign in username", formData.username.trim())
-            console.log("sign in password", formData.password.trim())
             // handle sign in functionality
-            const lsFormData = JSON.parse(localStorage.getItem("signup"))
+            lsFormData = JSON.parse(localStorage.getItem("signup"))
             if (formData.username.trim() === lsFormData.username.trim() && formData.password.trim() === lsFormData.password.trim()) {
                 toast.success("Logged in successfully!")
                 localStorage.setItem("isLoggedIn", "true")
@@ -66,6 +70,13 @@ function SignUp() {
     const handleIsVisible = () => {
         setIsVisible(!isVisible)
     }
+
+    // if user have account show sign in page
+    useEffect(() => {
+        if (localStorage.getItem("signup")) {
+            setMode("sign in")
+        }
+    }, [mode])
 
     return (
         <div className="w-full min-h-screen flex flex-col min-[1149px]:flex-row max-[1149px]:items-center justify-center bg-gradient-to-r from-[#F6F1EB] via-[#EDE7E0] to-[#F6F1EB]">
@@ -119,7 +130,7 @@ function SignUp() {
                 {/* input fields like name, username, email, password */}
                 <AnimatePresence mode="wait">
                     <motion.form
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={handleSubmit(onSubmit)}   // react-hook-form (form submition)
                         key={mode}
                         initial={{ opacity: 0, y: 5 }} // small shift only
                         animate={{ opacity: 1, y: 0 }}

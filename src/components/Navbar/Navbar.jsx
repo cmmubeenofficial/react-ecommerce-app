@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function Navbar() {
+
+  // get local storage data
+  const handleLogout = () => {
+    // clear local storage data
+    localStorage.setItem("isLoggedIn", "false")
+    window.location.reload()
+  }
+
   return (
     <>
       <div className="main-container pb-[2.5rem] overflow-hidden">
@@ -48,12 +56,19 @@ function Navbar() {
               <li className='cursor-pointer'>Products</li>
               <li className='cursor-pointer'>Contact Us</li>
             </ul>
-            {/* icons */}
+
+            {/* right side buttons */}
             <div className='right-icons flex items-center gap-[1rem]'>
-              <img className='cursor-pointer hidden lg:block' src="/icons/search.png" alt="search icon" />
-              <img className='cursor-pointer hidden lg:block' src="/icons/profile.png" alt="profile icon" />
+              <button className="search-btn">
+                <img className='cursor-pointer hidden lg:block' src="/icons/search.png" alt="search icon" />
+              </button>
+              <button className="profile-btn" onClick={handleLogout}>
+                <img className='cursor-pointer hidden lg:block' src="/icons/profile.png" alt="profile icon" />
+              </button>
               <div className='shoping-cart flex'>
-                <img className='cursor-pointer' src="/icons/shopping_cart.png" alt="shoping cart icon" />
+                <button className="shoping-cart-btn">
+                  <img className='cursor-pointer' src="/icons/shopping_cart.png" alt="shoping cart icon" />
+                </button>
                 <div className='bg-black w-6 h-6 rounded-full text-white text-center font-semibold cursor-pointer'>3</div>
               </div>
             </div>
