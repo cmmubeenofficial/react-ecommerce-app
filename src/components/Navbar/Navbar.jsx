@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function Navbar() {
+
+  // ============================ Global functions or variables ===========================
 
   // get local storage data
   const handleLogout = () => {
@@ -11,9 +13,38 @@ function Navbar() {
     window.location.reload()
   }
 
+  // hero section images array
+  const heroImages = [
+    "/imgs/hero_section/hero-sction1.png",
+    "/imgs/hero_section/hero-sction2.png",
+    "/imgs/hero_section/hero-sction3.png",
+    "/imgs/hero_section/hero-sction4.png",
+    "/imgs/hero_section/hero-sction5.png",
+  ]
+
+  // ============================ State Management ===========================
+  const [heroImageIndex, setHeroImageIndex] = useState(0)
+
+  // ============================ handler functions ===========================#
+
+  // next slide
+  const handleNextSlide = () => {
+    setHeroImageIndex((prev) => (
+      prev === heroImages.length - 1 ? 0 : prev + 1
+    ))
+  }
+
+  // previous slide
+  const handlePrevSlide = () => {
+    setHeroImageIndex((prev) => (
+      prev === 0 ? heroImages.length - 1 : prev - 1
+    ))
+  }
+
   return (
     <>
       <div className="main-container pb-[2.5rem] overflow-hidden">
+
         {/* dicount bar */}
         <div className="disc-bar-container min-h-[4vh] bg-[#F3F5F7] w-full flex justify-center items-center lg:pr-5 absolute top-0 left-0 py-[0.5rem] px-[2rem] gap-[1.375rem]">
 
@@ -48,8 +79,8 @@ function Navbar() {
               {/* logo */}
               <img className='w-[3.75rem] lg:w-[3.75rem] cursor-pointer' src="/logo_wood_heavem_trs.png" alt="wood heaven logo" />
             </div>
-            {/* </div> */}
             <ul className='manue-options hidden lg:flex gap-[2.5rem] font-space-grotesk'>
+
               {/* manue */}
               <li className='cursor-pointer'>Home</li>
               <li className='cursor-pointer'>Shop</li>
@@ -78,12 +109,16 @@ function Navbar() {
         {/* hero section */}
         <div className='flex justify-center items-center relative'>
           {/* 1030px */}
-          <img className='lg:w-[75vw] lg:max-w-full lg:h-auto h-[30.4vh] lg:px-0 px-8' src="/imgs/hero-sction1.png" alt="hero section sofa image 1" />
+          <img className='lg:w-[75vw] lg:max-w-full lg:h-auto h-[30.4vh] lg:px-0 px-8' src={heroImages[heroImageIndex]} alt={`hero section sofa image ${heroImageIndex + 1}`} />
           <div className="left-arrow-container absolute left-[11.25rem] bg-white h-[52px] w-[52px] rounded-full items-center justify-center cursor-pointer hidden lg:flex">
-            <img src="/icons/arrow-left.png" alt="hero section left icon" />
+            <button className="prev-btn cursor-pointer" onClick={handlePrevSlide}>
+              <img src="/icons/arrow-left.png" alt="hero section previous icon" />
+            </button>
           </div>
           <div className="right-arrow-container absolute right-[11.25rem] bg-white h-[52px] w-[52px] rounded-full items-center justify-center cursor-pointer hidden lg:flex">
-            <img src="/icons/arrow-right-black.png" alt="hero section left icon" />
+            <button className="next-btn cursor-pointer" onClick={handleNextSlide}>
+              <img src="/icons/arrow-right-black.png" alt="hero section next icon" />
+            </button>
           </div>
         </div>
 
