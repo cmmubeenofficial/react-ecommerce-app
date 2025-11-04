@@ -1,6 +1,6 @@
-import Articals from "../../components/Articals/Articals"
+import Articals from "../Articals/Articals"
 import Navbar from "../../components/Navbar/Navbar"
-import NewArivals from "../../components/NewArivals/NewArivals"
+import NewArivals from "../NewArivals/NewArivals"
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebook, faYoutube } from "@fortawesome/free-brands-svg-icons"
